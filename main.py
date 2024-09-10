@@ -6,6 +6,7 @@ times = [1,2,1,1]
 Input = [4, [4, 11], "", ""]
 
 try:
+    delete_file("Output.txt")
     student_ID = get_student_id()
     extract_zip(student_ID+'.zip',student_ID)
 
@@ -13,7 +14,7 @@ try:
 
     total_files = get_total_files(student_ID)
     # total_files = 2
-    for i in range(1,total_files):
+    for i in range(total_files):
         for j in range(times[i]):
             if times[i] > 1:
                 run_file(student_ID, i+1, Input[i][j])

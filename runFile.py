@@ -16,7 +16,10 @@ def run_file(student_ID,number,Input):
         subprocess.run(f'g++ {cpp_file} -o program', check=True)
         result = subprocess.run('./program', input=f'{Input}', text=True, capture_output=True)
         print(result.stdout)
-        print(f"Input is {Input}")
+        f = open("Output.txt", "a")
+        f.write(result.stdout)
+        f.write("\n\n\n\n\n")
+        f.close()
     except Exception as e:
         print(e)
 # def run_file_1(student_ID):
