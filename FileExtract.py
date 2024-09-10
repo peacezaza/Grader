@@ -53,7 +53,14 @@ def delete_file(file_path):
         os.remove(file_path)
     except OSError as e:
         print(f"Error: {e.strerror} - {e.filename}")
-
+def get_total_files(student_ID):
+    dir_path = f'./{student_ID}/{student_ID}'
+    count = 0
+    for path in os.listdir(dir_path):
+        # check if current path is a file
+        if os.path.isfile(os.path.join(dir_path, path)):
+            count += 1
+    return count
 #
 # student_ID = '6630300521'
 #
